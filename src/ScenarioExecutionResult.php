@@ -25,6 +25,12 @@ class ScenarioExecutionResult
 	}
 
 
+	public function getSteps(): array
+	{
+		return $this->steps;
+	}
+
+
 	public function getError(): ?string
 	{
 		return $this->exception ? $this->normalizeError($this->exception->getMessage()) : NULL;
