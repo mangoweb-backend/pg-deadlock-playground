@@ -43,6 +43,7 @@ class ScenarioExecutionResult
 		$columnPaddings = [];
 		$columnWidths = [];
 
+		ksort($groupedCells);
 		foreach ($groupedCells as $connectionIdx => $cells) {
 			$columnPaddings[$connectionIdx] = end($columnPaddings) + end($columnWidths);
 			$columnWidths[$connectionIdx] = 3 + array_reduce($cells, function (?int $maxLength, string $cell) {

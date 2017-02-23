@@ -46,6 +46,7 @@ class Scenario
 		$columnPaddings = [];
 		$columnWidths = [];
 
+		ksort($groupedQueries);
 		foreach ($groupedQueries as $connectionIdx => $queries) {
 			$columnPaddings[$connectionIdx] = end($columnPaddings) + end($columnWidths);
 			$columnWidths[$connectionIdx] = 3 + array_reduce($queries, function (?int $maxLength, string $query) {
