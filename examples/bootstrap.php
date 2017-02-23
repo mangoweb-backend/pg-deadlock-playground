@@ -14,9 +14,7 @@ $initQueries = [
 	'INSERT INTO users VALUES (1, \'Logan\')'
 ];
 
-$connectionFactory = new ConnectionFactory($config);
-$connectionPoolFactory = new ConnectionPoolFactory($connectionFactory, $initQueries);
-$executor = new ScenarioExecutor($connectionPoolFactory);
+$executor = ScenarioExecutor::create($config, $initQueries);
 $verifier = new ScenarioExpectationVerifier($executor);
 $verifier->setVerbose();
 

@@ -15,6 +15,15 @@ class ScenarioExecutor
 	}
 
 
+	public static function create(array $databaseConfig, array $initQueries = []): self
+	{
+		$connectionFactory = new ConnectionFactory($databaseConfig);
+		$connectionPoolFactory = new ConnectionPoolFactory($connectionFactory, $initQueries);
+
+		return new self($connectionPoolFactory);
+	}
+
+
 	public function execute(Scenario $scenario): ScenarioExecutionResult
 	{
 		$pool = $this->connectionPoolFactory->create();

@@ -27,9 +27,7 @@ $initQueries = [
     'INSERT INTO users VALUES (1, \'Logan\')'
 ];
 
-$connectionFactory = new Mangoweb\PgDeadlockPlayground\ConnectionFactory($config);
-$connectionPoolFactory = new Mangoweb\PgDeadlockPlayground\ConnectionPoolFactory($connectionFactory, $initQueries);
-$executor = new Mangoweb\PgDeadlockPlayground\ScenarioExecutor($connectionPoolFactory);
+$executor = Mangoweb\PgDeadlockPlayground\ScenarioExecutor::create($config, $initQueries);
 $verifier = new Mangoweb\PgDeadlockPlayground\ScenarioExpectationVerifier($executor);
 $verifier->setVerbose();
 
