@@ -40,7 +40,7 @@ class Scenario
 	}
 
 
-	public function dump(?int $markedStepIdx = NULL): void
+	public function dump(): void
 	{
 		$groupedQueries = $this->getQueriesGroupedByConnection();
 		$columnPaddings = [];
@@ -54,13 +54,12 @@ class Scenario
 		}
 
 		foreach ($this->steps as $stepIdx => list($connectionIdx, $query)) {
-			echo $stepIdx === $markedStepIdx ? '-> ' : '   ';
 			echo str_repeat(' ', $columnPaddings[$connectionIdx]);
 			echo $query;
 			echo "\n";
 		}
 
-		echo str_repeat('-', array_sum($columnWidths)), "\n";
+		echo str_repeat('-', array_sum($columnWidths) - 3), "\n";
 	}
 
 
