@@ -2,8 +2,10 @@
 	"name": "mangoweb/pg-deadlock-playground",
 	"license": "MIT",
 	"require": {
-		"nette/utils": "^2.4",
-		"nette/tester": "^1.7"
+		"php": "~7.1",
+		"ext-pgsql": "*",
+		"nette/utils": "~2.4",
+		"nette/tester": "~1.7"
 	},
 	"autoload": {
 		"classmap": ["src"]
